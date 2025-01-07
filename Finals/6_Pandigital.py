@@ -27,9 +27,8 @@ def divisible_pandigitals():
         num = int(''.join(perm))
         if all(num % i == 0 for i in range(1, 10)):
             results.append(num)
-            if len(results) == permutations('0123456789'): #Delete this line to get all results
+            if len(results) == 2: #Delete this line to get all results
                 break
-
     end_time = time()
     return results, end_time - start_time
 
@@ -40,7 +39,7 @@ def divisible_pandigitals_optimized():
         if perm[0] == '0':
             continue
         num = int(''.join(perm))
-        if num % 2560 == 0:
+        if num % 2520 == 0:
             results.append(num)
     end_time = time()
     return results, end_time - start_time
@@ -83,11 +82,13 @@ print("\n2 & 3. Pandigital numbers divisible by 1-9:")
 print("1st force approach:")
 divisible_1st, time_1st = divisible_pandigitals()
 print(f"Results: {divisible_1st}")
+print(f"Total results: {len(divisible_1st)}")
 print(f"Time taken by 1st Method: {time_1st:.2f} seconds")
 
 print("\nOptimized approach (using 2520):")
 divisible_opt, time_opt = divisible_pandigitals_optimized()
 print(f"Results: {divisible_opt}")
+print(f"Total results: {len(divisible_opt)}")
 print(f"Time taken by Optimized Method: {time_opt:.2f} seconds")
 
 # 4 & 5. Square Pandigitals
@@ -95,10 +96,12 @@ print("\n4 & 5. Pandigital squares:")
 print("1st approach:")
 squares_1st, time_1st = pandigital_squares()
 print(f"Results: {squares_1st}")
+print(f"Total results: {len(squares_1st)}")
 print(f"Time taken: {time_1st:.2f} seconds")
 
 print("\nOptimized approach:")
 squares_opt, time_opt = pandigital_squares_optimized()
 print(f"Results: {squares_opt}")
+print(f"Total results: {len(squares_opt)}")
 print(f"Time taken: {time_opt:.2f} seconds")
 print("\n")
